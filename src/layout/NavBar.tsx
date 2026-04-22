@@ -6,7 +6,7 @@ export default function NavBar(){
             <div>
                 <h1>App do Clima</h1>
             </div>
-            <div>
+            <div className={styles.navigation}>
                 <h2>Sobre</h2>
             </div>
         </header>

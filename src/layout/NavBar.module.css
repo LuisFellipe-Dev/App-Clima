@@ -1,5 +1,25 @@
 header{
     width: auto;
+    height: 100px;
+    padding: 0 30px;
     display: flex;
+    justify-content: space-between;
     background-color: rgb(73, 212, 212);
+
+    div{
+        color: rgb(31, 30, 30);
+        align-content: space-around;
+    }
+    div:nth-child(1){
+        font-size: 20px;
+    }
+    div:nth-child(2){
+        width: 10%;
+        text-align: center;
+    }
+    div:nth-child(2):hover{
+        cursor: pointer;
+        transition: 500ms;
+        background-color: rgb(52, 158, 158);
+    }
 }

@@ -1,4 +1,5 @@
 import './App.css'
+import Display from './layout/Display'
 import NavBar from './layout/NavBar'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <NavBar/>
+      <Display/>
     </>
   )
 }
