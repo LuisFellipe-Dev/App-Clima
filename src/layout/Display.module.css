@@ -5,5 +5,19 @@
     margin-top: 5%;
     padding: 10px 0;
     border-radius: 10px;
-    background-color: rgb(194, 221, 245);
+    background-color: rgb(80, 235, 235);
+}
+.table{
+    margin: 10% auto;
+    width: 70%;
+    th{
+        text-align: center;
+        font-size: 20px;
+    }
+    td{
+
+        text-align: center;
+        font-size: 35px;
+        width: calc(100%/3);
+    }
 }

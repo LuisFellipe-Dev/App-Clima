@@ -8,6 +8,24 @@ export default function Display(){
             <div>
                 <Filter/>
             </div>
+            <div>
+                <table className={styles.table}>
+                    <thead>
+                        <tr>
+                            <th>Chuva</th>
+                            <th>Temperatura</th>
+                            <th>Vento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>--%</td>
+                            <td>--C°</td>
+                            <td>--Km/h</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

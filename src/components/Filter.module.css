@@ -1,7 +1,14 @@
+*{
+    cursor: default;
+}
+.filter{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+}
 input{
     width: 80%;
-    display: flex;
-    margin: auto;
+    margin-left: auto;
     padding: 10px 0 10px 30px;
     border: 0;
     border-radius: 15px;
@@ -9,4 +16,12 @@ input{
 input:focus{
     transition: 500ms;
     outline: 1px solid rgb(102, 102, 102);
+}
+img{
+    width: 30px;
+    height: 30px;
+    margin: auto auto auto 2%;
+}
+img:hover{
+    cursor: pointer;
 }
