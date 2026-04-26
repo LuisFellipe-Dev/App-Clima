@@ -12,7 +12,7 @@ export default function Filter(){
     const [options, setOptions] = useState<City[]>([])
     const [selectedCity, setSelectedCity] = useState<City | null>(null)
     const loading = open && options.length === 0;
-    const filter = createFilterOptions({limit: 15});
+    const filter = createFilterOptions<City>({limit: 15});
 
     useEffect(() => {
         if(!loading) return undefined;
