@@ -22,3 +22,7 @@
         width: calc(100%/3);
     }
 }
+.Autocomplete{
+    margin: 5% auto;
+    width: 70%;
+}

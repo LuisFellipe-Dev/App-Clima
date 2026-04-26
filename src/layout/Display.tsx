@@ -13,13 +13,10 @@ export default function Display(){
     useEffect(()=>{
         init()
     },[])
-    useEffect(()=>{
-        console.log(data)
-    },[data])
 
     return(
         <div className={styles.display}>
-            <div>
+            <div className={styles.Autocomplete}>
                 <Filter/>
             </div>
             <div>

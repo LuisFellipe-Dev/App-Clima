@@ -1,73 +1,45 @@
-# React + TypeScript + Vite
+# App do Clima
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Deploy: [project-weathers.netlify.app](https://project-weathers.netlify.app/)
 
-Currently, two official plugins are available:
+Plataforma de monitoramento meteorológico global que fornece dados em tempo real para auxiliar no planejamento estratégico e na prevenção de incidentes climáticos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Funcionalidades
+- 🔍 Busca Dinâmica: Pesquisa instantânea de condições climáticas por nome de cidade.
+- ☁️ Dados Meteorológicos: Exibição detalhada de temperatura, precipitação e velocidade do vento via OpenWeather API(Open-meteo).
 
-## React Compiler
+## 🛠 Tecnologias
+Este projeto foi construído com:
+- **ReactJS (Interface)**
+- **TypeScript (Tipagem e Lógica)**
+- **CSS Modules (Estilização)**
+- **Axios (Consumo de API)**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🏁 Como começar
 
-## Expanding the ESLint configuration
+### Pré-requisitos
+Você precisará ter instalado um gerenciador de pacotes (npm, yarn ou pnpm).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Instalação
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/LuisFellipe-Dev/App-Clima.git
+2. Instale as dependências:
+   ```bash
+   npm install
+3. Configure o arquivo .env:
+   ```.env
+   VITE_API_URL=https://api.open-meteo.com/v1/forecast
+4. Inicie o servidor:
+   ```bash
+   npm run dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+<img width="1365" height="597" alt="image" src="https://github.com/user-attachments/assets/43927799-ddb7-479f-aef0-fbc6861328da" />
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Proximos passos
+- [x]  Autocomplete na busca por cidades.
+- [ ]  Transformar, por meio de API, a Cidade em sua localização geográfica(longitude e latitude).
+- [ ]  Implementar a geolocalização na requisição dos dados meteorológicos.
+...
+---
+Desenvolvido com ☕ por [Luis Fellipe](https://www.linkedin.com/in/luis-fellipe-3a0858335/)
