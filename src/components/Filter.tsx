@@ -44,7 +44,7 @@ export default function Filter(){
                     {...params}
                     label="Selecione uma Cidade..."
                     slotProps={{
-                        Input: {
+                        input: {
                             ...params.InputProps,
                             endAdornment:(
                                 <React.Fragment>
