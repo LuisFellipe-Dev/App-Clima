@@ -45,11 +45,11 @@ export default function Filter(){
                     label="Selecione uma Cidade..."
                     slotProps={{
                         input: {
-                            ...params.InputProps,
+                            ...params.inputProps,
                             endAdornment:(
                                 <React.Fragment>
                                     {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                                    {params.InputProps?.endAdornment}
+                                    {params.inputProps?.endAdornment}
                                 </React.Fragment>
                             )
                         }
