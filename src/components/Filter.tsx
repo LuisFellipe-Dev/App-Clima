@@ -24,7 +24,7 @@ export default function Filter(){
     },[loading])
 
     return(
-        <Autocomplete
+        <Autocomplete<City>
             id="locateAutocomplete"
             fullWidth
             filterOptions={filter}
@@ -32,11 +32,10 @@ export default function Filter(){
             onOpen={() => setOpen(true)}
             onClose={() => setOpen(false)}
             isOptionEqualToValue={(option, value) => option.id === value.id}
-            getOptionLabel={(option) => option.nome}
+            getOptionLabel={(option) => option.nome || ""}
             value={selectedCity}
-            onChange={(event, newValue) => {
+            onChange={(_, newValue) => {
                 setSelectedCity(newValue);
-                console.log(newValue);
             }}
             options={options}
             loading={loading}
