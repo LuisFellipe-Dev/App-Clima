@@ -46,10 +46,10 @@ export default function Filter(){
                     InputProps={{
                     ...params.InputProps,
                     endAdornment: (
-                        <>
-                        {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                        {params.InputProps?.endAdornment}
-                        </>
+                        <React.Fragment>
+                            {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                            {params.InputProps?.endAdornment}
+                        <React.Fragment/>
                     ),
                     }}
                 />
