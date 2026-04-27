@@ -7,17 +7,10 @@ import styles from './Display.module.css'
 export default function Display(){
     const [data, setData] = useState<any>(null)
 
-    async function init(){
-        setData(await Weather.get(-5.8,-35.2))
-    }
-    useEffect(()=>{
-        init()
-    },[])
-
     return(
         <div className={styles.display}>
             <div className={styles.Autocomplete}>
-                <Filter/>
+                <Filter setData={setData}/>
             </div>
             <div>
                 <table className={styles.table}>

@@ -1,18 +1,26 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, {createFilterOptions} from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import { Cities } from '../services/cities'
+import { Cities } from '../services/cities';
+import { Weather } from '../services/weather';
 
-import type { City } from '../interfaces/City'
+import type { City } from '../interfaces/City';
 
-export default function Filter(){
-    const [open, setOpen] = useState(false)
-    const [options, setOptions] = useState<City[]>([])
-    const [selectedCity, setSelectedCity] = useState<City | null>(null)
+export default function Filter({setData}: {setData: React.Dispatch<React.SetStateAction<any>>}){
+    const [open, setOpen] = useState(false);
+    const [options, setOptions] = useState<City[]>([]);
+    const [selectedCity, setSelectedCity] = useState<object>({});
     const loading = open && options.length === 0;
     const filter = createFilterOptions<City>({limit: 15});
+
+    async function getWeather(city){
+        const timer = setTimeout(async () => {
+            setData(await Weather.get(city));
+        },500);
+        return () => clearTimeout(timer);
+    }
 
     useEffect(() => {
         if(!loading) return undefined;
@@ -31,11 +39,12 @@ export default function Filter(){
             open={open}
             onOpen={() => setOpen(true)}
             onClose={() => setOpen(false)}
-            isOptionEqualToValue={(option, value) => option.id === value.id}
+            getOptionKey={(option) => option.id}
             getOptionLabel={(option) => option.nome || ""}
             value={selectedCity}
             onChange={(_, newValue) => {
                 setSelectedCity(newValue);
+                getWeather(newValue);
             }}
             options={options}
             loading={loading}
@@ -43,15 +52,6 @@ export default function Filter(){
                 <TextField
                     {...params}
                     label="Selecione uma Cidade..."
-                    InputProps={{
-                    ...params.InputProps,
-                    endAdornment: (
-                        <React.Fragment>
-                            {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                            {params.InputProps?.endAdornment}
-                        <React.Fragment/>
-                    ),
-                    }}
                 />
             )}
         />
