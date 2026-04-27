@@ -1,10 +1,11 @@
 import axios from "axios";
 import { Coordenates } from "./coordenates";
+import type { City } from "../intefaces/city";
 
 const API_Weather = import.meta.env.VITE_API_WEATHER;
 
 export const Weather = {
-    async get(city: object){
+    async get(city: City){
         try {
             const locate = await Coordenates.getCoordenates(city?.nome);
             const response = await axios.get(API_Weather, {

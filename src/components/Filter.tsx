@@ -4,15 +4,16 @@ import Autocomplete, {createFilterOptions} from '@mui/material/Autocomplete';
 
 import { Cities } from '../services/cities';
 import { Weather } from '../services/weather';
+import type { City } from '../intefaces/city';
 
 export default function Filter({setData}: {setData: React.Dispatch<React.SetStateAction<any>>}){
     const [open, setOpen] = useState(false);
-    const [options, setOptions] = useState([]);
-    const [selectedCity, setSelectedCity] = useState<object>({});
+    const [options, setOptions] = useState<City[]>([]);
+    const [selectedCity, setSelectedCity] = useState<City | null>(null);
     const loading = open && options.length === 0;
-    const filter = createFilterOptions({limit: 15});
+    const filter = createFilterOptions<City>({limit: 15});
 
-    async function getWeather(city: object){
+    async function getWeather(city: City){
         const timer = setTimeout(async () => {
             setData(await Weather.get(city));
         },500);
@@ -29,7 +30,7 @@ export default function Filter({setData}: {setData: React.Dispatch<React.SetStat
     },[loading])
 
     return(
-        <Autocomplete
+        <Autocomplete<City>
             id="locateAutocomplete"
             fullWidth
             filterOptions={filter}
