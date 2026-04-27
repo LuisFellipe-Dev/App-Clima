@@ -43,16 +43,14 @@ export default function Filter(){
                 <TextField
                     {...params}
                     label="Selecione uma Cidade..."
-                    slotProps={{
-                        input: {
-                            ...params.inputProps,
-                            endAdornment:(
-                                <React.Fragment>
-                                    {loading ? <CircularProgress color="inherit" size={20} /> : null}
-                                    {params.inputProps?.endAdornment}
-                                </React.Fragment>
-                            )
-                        }
+                    InputProps={{
+                    ...params.InputProps,
+                    endAdornment: (
+                        <>
+                        {loading ? <CircularProgress color="inherit" size={20} /> : null}
+                        {params.InputProps?.endAdornment}
+                        </>
+                    ),
                     }}
                 />
             )}
