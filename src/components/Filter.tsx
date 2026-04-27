@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, {createFilterOptions} from '@mui/material/Autocomplete';
-import CircularProgress from '@mui/material/CircularProgress';
 
 import { Cities } from '../services/cities';
 import { Weather } from '../services/weather';
@@ -15,7 +14,7 @@ export default function Filter({setData}: {setData: React.Dispatch<React.SetStat
     const loading = open && options.length === 0;
     const filter = createFilterOptions<City>({limit: 15});
 
-    async function getWeather(city){
+    async function getWeather(city: object){
         const timer = setTimeout(async () => {
             setData(await Weather.get(city));
         },500);
@@ -32,7 +31,7 @@ export default function Filter({setData}: {setData: React.Dispatch<React.SetStat
     },[loading])
 
     return(
-        <Autocomplete<City>
+        <Autocomplete
             id="locateAutocomplete"
             fullWidth
             filterOptions={filter}
@@ -43,6 +42,7 @@ export default function Filter({setData}: {setData: React.Dispatch<React.SetStat
             getOptionLabel={(option) => option.nome || ""}
             value={selectedCity}
             onChange={(_, newValue) => {
+                if(newValue === null) return;
                 setSelectedCity(newValue);
                 getWeather(newValue);
             }}

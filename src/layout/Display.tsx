@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Weather } from '../services/weather'
+import { useState } from 'react'
 import Filter from '../components/Filter'
 
 import styles from './Display.module.css'
