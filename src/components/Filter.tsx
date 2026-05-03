@@ -6,7 +6,7 @@ import { Cities } from '../services/cities';
 import { Weather } from '../services/weather';
 import type { City } from '../intefaces/city';
 
-export default function Filter(props){
+export default function Filter({setData}: {setData: React.Dispatch<React.SetStateAction<any>>}){
     const [open, setOpen] = useState(false);
     const [options, setOptions] = useState<City[]>([]);
     const [selectedCity, setSelectedCity] = useState<City | null>(null);
@@ -15,7 +15,7 @@ export default function Filter(props){
 
     async function getWeather(city: City){
         const timer = setTimeout(async () => {
-            props.setData(await Weather.get(city));
+            setData(await Weather.get(city));
         },500);
         return () => clearTimeout(timer);
     }
